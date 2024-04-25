@@ -1,7 +1,6 @@
 const express = require('express');
-const { home, signup, login } = require('./api/auth/controllers/pageControllers');
-const middlewares = require('./api/auth/middleware/authMiddleware');
 const NoError = require('./core/ErrorHandling');
+const routes = require('./api/auth/services/routes');
 
 const PORT = 3000;
 const app = express();
@@ -29,10 +28,7 @@ NoError((err, warnings, folderName, jsonData) => {
         });
         console.warn(`\n${colors.yellow}Server will not start due to warnings.${colors.reset}`);
     } else {
-        app.get("/", middlewares, (req, res) => { home(req, res) });
-        app.get("/signup", middlewares, (req, res) => { signup(req, res) });
-        app.get("/login", middlewares, (req, res) => { login(req, res) });
-
+        routes(app)
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
