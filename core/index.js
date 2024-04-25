@@ -4,7 +4,7 @@ const path = require('path');
 const {home, signup, login} = require('../api/auth/controllers/pageControllers');
 const middlewares =  require('../api/auth/middleware/authMiddleware')
 
-const filePath = '../api/auth/routes.json';
+const filePath = '../api/auh/routes.json';
 const methodNames = ['get', 'post', 'put', 'delete'];
 
 const colors = {
