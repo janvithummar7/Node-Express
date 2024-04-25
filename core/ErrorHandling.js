@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { home, signup, login } = require('../api/auth/controllers/pageControllers');
+const middlewares = require('../api/auth/middleware/authMiddleware');
 
 const filePath = './api/auth/routes.json';
 const methodNames = ['get', 'post', 'put', 'delete'];
@@ -66,4 +68,10 @@ const ErrorHandling = (callback) => {
     });
 };
 
-module.exports = ErrorHandling;
+function Routes(app) {
+    app.get("/", middlewares, (req, res) => { home(req, res) });
+    app.get("/signup", middlewares, (req, res) => { signup(req, res) });
+    app.get("/login", middlewares, (req, res) => { login(req, res) });
+}
+
+module.exports = { ErrorHandling, Routes };

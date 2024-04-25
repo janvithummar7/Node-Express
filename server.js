@@ -1,9 +1,8 @@
 const express = require('express');
-const NoError = require('./core/ErrorHandling');
-const routes = require('./api/auth/services/routes');
+const { ErrorHandling, Routes } = require('./core/ErrorHandling');
 
-const PORT = 3000;
 const app = express();
+const PORT = 3000;
 
 const colors = {
     reset: '\x1b[0m',
@@ -11,7 +10,7 @@ const colors = {
     yellow: '\x1b[33m'
 };
 
-NoError((err, warnings, folderName, jsonData) => {
+ErrorHandling((err, warnings, folderName, jsonData) => {
     if (err) {
         console.error(`${colors.red}Error : ${err}${colors.reset}`);
         return;
@@ -28,7 +27,7 @@ NoError((err, warnings, folderName, jsonData) => {
         });
         console.warn(`\n${colors.yellow}Server will not start due to warnings.${colors.reset}`);
     } else {
-        routes(app)
+        Routes(app); // Setup routes
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
