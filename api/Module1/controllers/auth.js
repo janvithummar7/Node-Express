@@ -20,9 +20,9 @@ function home(req, res) {
 
 function signup(req, res) {
     console.log("Signup page ");
-    console.log(framework);
-    const myService = framework.services.test.myService1;    
-    console.log(myService());
+    console.log(framework)
+    const myService = framework.services.Module1.test.myService1();    
+    console.log(myService);
     res.send("Signup page");
 }
 
