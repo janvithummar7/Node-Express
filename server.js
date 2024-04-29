@@ -1,5 +1,10 @@
 const express = require('express');
-const { ErrorHandling, Routes } = require('./core/ErrorHandling');
+const { ErrorHandling } = require('./core/ErrorHandling');
+const { Routes } = require('./core/routes');
+const globalFramework = require('./core/framework');
+
+
+global.framework = globalFramework;
 
 const app = express();
 const PORT = 3000;
@@ -39,8 +44,7 @@ ErrorHandling((err, warnings, err_msg, folderName, jsonData) => {
         });
         console.warn(`\n${colors.yellow}Server will start with warnings.${colors.reset}`);
     }
-
-    Routes(app, jsonData.filter((route, index) => !err_msg.some(msg => msg.includes(`index ${index}`))));
+    Routes(app, jsonData.filter((route, index) => !err_msg.some(msg => msg.includes(`index ${index}`))))
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });

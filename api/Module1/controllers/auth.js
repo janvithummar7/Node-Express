@@ -1,4 +1,3 @@
-const framework = require('../../../core/services');
 function home(req, res) {
     console.log("Home page");
      
@@ -23,6 +22,8 @@ function signup(req, res) {
     console.log(framework)
     const myService = framework.services.Module1.test.myService1();    
     console.log(myService);
+    const myCrone = framework.crons.crons.cron1();    
+    console.log(myCrone);
     res.send("Signup page");
 }
 
