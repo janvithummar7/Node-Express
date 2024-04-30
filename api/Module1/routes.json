@@ -11,7 +11,7 @@
   },
   {
     "path": "/login",
-    "method": "get",
+    "method": "post",
     "action": "auth.login",
     "public": false,
     "globalMiddlewares": ["globalMiddlewares.globalMiddleware1", "globalMiddlewares.globalMiddleware3"],
@@ -53,7 +53,7 @@
     "path": "/create",
     "method": "get",
     "action": "auth.create",
-    "public": false,
+    "public": true,
     "globalMiddlewares": ["globalMiddlewares.globalMiddleware1", "globalMiddlewares.globalMiddleware4"],
     "middlewares": ["authMiddleware.authMiddleware2", "authMiddleware.authMiddleware4"],
     "pathFromRoot": false,
