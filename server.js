@@ -1,10 +1,20 @@
 const express = require('express');
 const { ErrorHandling } = require('./core/ErrorHandling');
 const { Routes } = require('./core/routes');
-const globalFramework = require('./core/framework');
+
+const services  = require('./core/services');
+const crons = require('./core/crons')
+const functions = require('./core/functions')
 
 
-global.framework = globalFramework;
+const framework = {
+    services: services,
+    crons: crons,
+    functions: functions,
+};
+
+
+global.framework = framework;
 
 const app = express();
 const PORT = 3000;
