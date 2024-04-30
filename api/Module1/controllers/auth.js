@@ -24,6 +24,8 @@ function signup(req, res) {
     console.log(myService);
     const myCrone = framework.crons.crons.cron1();    
     console.log(myCrone);
+    const myFunction = framework.functions.Module1.allFunctions.function1();    
+    console.log(myFunction);
     res.send("Signup page");
 }
 
