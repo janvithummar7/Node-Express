@@ -1,9 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
+
+const ErrorHandling = (callback) => {
+    
 const files = fs.readdirSync("api");
 
-const filePath = `./api/${files}/routes.json`;
+files.forEach(file => {
+
+    
+
+const filePath = `./api/${file}/routes.json`;
 const methodNames = ['get', 'post', 'put', 'delete'];
 
 const colors = {
@@ -11,8 +18,6 @@ const colors = {
     red: '\x1b[31m',
     yellow: '\x1b[33m'
 };
-
-const ErrorHandling = (callback) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             console.error(`${colors.red}Error reading file:${colors.reset}`, err);
@@ -69,8 +74,12 @@ const ErrorHandling = (callback) => {
             console.error(`${colors.red}Error parsing JSON:${colors.reset}`, error);
             callback(error);
         }
+
     });
+})
+
 };
+
 
 // const Routes = (app, jsonData) => {
 

@@ -1,3 +1,6 @@
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 function globalMiddleware1(req, res, next) {
     console.log('globalMiddleware1 Use Successfully...');
     next(); 
@@ -28,4 +31,20 @@ function globalMiddleware6(req, res, next) {
     next(); 
 }
 
-module.exports = {globalMiddleware1, globalMiddleware2, globalMiddleware3, globalMiddleware4, globalMiddleware5,  globalMiddleware6};
+const verifyToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) {
+        return res.status(401).json({ message: 'Unauthorized: No token provided' });
+    }
+    jwt.verify(token, process.env.SECRET_KEY, (err, userData) => {
+        if (err) {
+            return res.status(403).json({ message: 'Unauthorized: Invalid token' });
+        }
+        req.userData = userData;
+        console.log("Token Verify");
+        next();
+    });
+};
+
+module.exports = {globalMiddleware1, globalMiddleware2, globalMiddleware3, globalMiddleware4, globalMiddleware5,  globalMiddleware6, verifyToken};
