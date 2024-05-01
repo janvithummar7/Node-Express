@@ -30,6 +30,7 @@ const startServer = async () => {
     const app = express();
     const PORT = 3000;
     const files = await fs.readdir("api");
+    if(files.length === 0) return console.warn(`${colors.yellow}No Module found in "api" directory${colors.reset}`);
     for (let i = 0; i < files.length; i++) {
         const filePath = `./api/${files[i]}/routes.json`;
         
