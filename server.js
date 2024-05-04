@@ -2,17 +2,23 @@ const express = require('express');
 const services  = require('./core/services');
 const crons = require('./core/crons')
 const functions = require('./core/functions')
-const {routes, startServer} = require('./core/routes')
+const {Routes} = require('./core/routes')
 
 const framework = {
     services: services,
     crons: crons,
     functions: functions,
-    routes: routes,
 };
 global.framework = framework;
 
 const app = express();
+const PORT = 3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(startServer)
+Routes(app).then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}).catch((error) => {
+    console.error(`Error setting up routes:`, error);
+});

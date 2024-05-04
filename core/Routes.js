@@ -1,8 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-const f_s = require("fs");
 
-const express = require("express");
 const colors = {
     reset: '\x1b[0m',
     red: '\x1b[31m',
@@ -11,26 +9,7 @@ const colors = {
 const methodNames = ['get', 'post', 'put', 'delete'];
 
 
-const routes = {};
-const modulesPath = path.join(__dirname, "../api");
-const moduleDirectories = f_s.readdirSync(modulesPath);
-moduleDirectories.forEach((moduleDir) => {
-  const modulePath = path.join(modulesPath, moduleDir);
-  const routesPath = path.join(modulePath, "controllers");
-  const routesFiles = f_s.readdirSync(routesPath);
-  routes[moduleDir] = {};
-  routesFiles.forEach((file) => {
-    if (file.endsWith(".js")) {
-      const routeName = path.basename(file, ".js");
-      const routeModule = require(path.join(routesPath, file));
-      routes[moduleDir][routeName] = routeModule;
-    }
-  });
-});
-
-const startServer = async () => {
-    const app = express();
-    const PORT = 3000;
+const Routes = async (app) => {
     const files = await fs.readdir("api");
     if(files.length === 0) return console.warn(`${colors.yellow}No Module found in "api" directory${colors.reset}`);
     for (let i = 0; i < files.length; i++) {
@@ -149,16 +128,7 @@ const startServer = async () => {
             console.error(`${colors.red}Error reading or parsing JSON file:${colors.reset}`, error);
         }
     }
-    
-    app.listen(PORT, () => {
-        console.log(`${colors.yellow}Server is running on port ${PORT}${colors.reset}`);
-    });
 }
 
 
-startServer().catch((error) => {
-    console.error(`${colors.red}Error starting server:${colors.reset}`, error);
-});
-
-
-module.exports = {routes, startServer};
+module.exports = {Routes};
