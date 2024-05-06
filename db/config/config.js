@@ -1,4 +1,4 @@
-{
+const jsonData = {
   "development": {
     "username": "root",
     "password": "123456",
@@ -21,3 +21,5 @@
     "dialect": "mysql"
   }
 }
+
+module.exports = jsonData
