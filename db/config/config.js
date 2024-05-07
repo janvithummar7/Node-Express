@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const jsonData = {
   development: {
     username: process.env.DATABASE_USERNAME,

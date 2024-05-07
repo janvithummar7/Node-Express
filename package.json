@@ -19,7 +19,8 @@
     "node-cron": "^3.0.3",
     "nodemon": "^3.1.0",
     "path": "^0.12.7",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "umzug": "^2.3.0"
   },
   "description": "",
   "devDependencies": {
