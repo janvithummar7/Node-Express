@@ -6,6 +6,7 @@ const { Routes } = require('./core/routes');
 const services = require('./core/services');
 const crons = require('./core/crons');
 const functions = require('./core/functions');
+const { log } = require('console');
 const fs = require('fs').promises;
 
 const framework = {
@@ -53,13 +54,13 @@ async function checkPendingMigrations() {
     const jsMigrationFiles = migrationFiles.filter(file => file.endsWith('.js'));
 
     const pendingMigrations = jsMigrationFiles.filter((migration) => {
-      const migrationName = migration.replace(/^.*[\\\/]/, '');
-      return !executedMigrations.some((executed) => executed.name === migrationName);
+      return !executedMigrations.some((executed) => executed.name === migration);
     });
 
     if (pendingMigrations.length > 0) {
-        const answer = await askUser('Found pending migrations. Do you want to run them? (yes/no) ');
-        if (answer.toLowerCase() === 'yes') {
+        console.log(`Found pending migrations... \n ${pendingMigrations}`);
+        const answer = await askUser('\n Do you want to run them? (y/n) ');
+        if (answer.toLowerCase() === 'y') {
           console.log('Running pending migrations...');
           await runMigrations(pendingMigrations);
         } else {
@@ -94,8 +95,7 @@ async function askUser(question) {
       await sequelize.query('START TRANSACTION');
   
       for (const migration of migrationFiles) {
-        const migrationName = migration.replace(/^.*[\\\/]/, '');
-        await SequelizeMeta.create({ name: migrationName });
+        await SequelizeMeta.create({ name: migration });
         const migrationModule = require(`./db/migrations/${migration}`);
         await migrationModule.up(sequelize.getQueryInterface());
       }
@@ -133,5 +133,4 @@ async function askUser(question) {
     }
   }
   
-  // Initialize the application
   initializeApp();
