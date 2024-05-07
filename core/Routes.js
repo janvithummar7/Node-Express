@@ -66,7 +66,7 @@ const Routes = async (app) => {
                     warnings.push(`Invalid 'enabled' value in route at index ${index}: ${route.enabled}`);
                 }
                 
-                if (!notValidRoutes.includes(route)) {   
+                if (!notValidRoutes.includes(route)) { 
                     const routePath = route.path;
                     const routeMethod = route.method.toLowerCase();
                     const action = route.action;
