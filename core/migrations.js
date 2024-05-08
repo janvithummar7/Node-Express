@@ -2,7 +2,7 @@ const readline = require('readline');
 const  Sequelize = require('sequelize');
 const Umzug = require('umzug');
 const path = require('path');
-const sequelize = framework.sequelize;
+const sequelize = framework.connection;
 
 
 async function checkPendingMigrations() {
@@ -25,9 +25,7 @@ async function checkPendingMigrations() {
         });      
   
         const pendingMigrations = await umzug.pending();
-        // console.log(pendingMigrations, ' : pendingMigrations');
         const migrations = await umzug.executed()
-        // console.log(migrations);
   
   
         if (pendingMigrations.length > 0) {

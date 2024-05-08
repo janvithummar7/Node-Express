@@ -8,7 +8,6 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(path.join(__dirname , '../db/config/config.js'))[env];
 const db = {};
-// console.log("hey")
 
 let sequelize;
 if (config.use_env_variable) {
@@ -20,8 +19,6 @@ console.log(path.join(__dirname, '../db'));
 fs
   .readdirSync(path.join(__dirname, '../db/models'))
   .filter(file => {
-    console.log("hey",file);
-
     return (
       file.indexOf('.') !== 0 &&
       file !== basename &&
@@ -30,8 +27,6 @@ fs
     );
   })
   .forEach(file => {
-    console.log("heyaa",file);
-
     console.log(path.join(__dirname, '../db', file))
     const model = require(path.join(__dirname, '../db/models', file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
@@ -43,7 +38,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
 
 module.exports = {db, sequelize};
