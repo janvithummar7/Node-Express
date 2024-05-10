@@ -4,7 +4,8 @@ const { Routes } = require('./core/routes');
 const services = require('./core/services');
 const crons = require('./core/crons');
 const functions = require('./core/functions');
-const {db,sequelize} = require('./core/model')
+const {db,sequelize} = require('./core/model');
+
 
 const framework = {
   services: services,
@@ -14,6 +15,7 @@ const framework = {
   connection: sequelize
 };
 global.framework = framework;
+
 const {checkPendingMigrations} = require('./core/migrations');
 const app = express();
 const PORT = process.env.PORT;
@@ -26,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
   
       app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
+
       });
     } catch (error) {
       console.error('Error setting up routes or starting server:', error);
@@ -43,4 +46,7 @@ app.use(express.urlencoded({ extended: true }));
     }
   }
   
-  initializeApp();
+  // initializeApp();
+
+
+  module.exports = initializeApp

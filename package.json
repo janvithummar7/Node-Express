@@ -1,9 +1,11 @@
 {
   "name": "core",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./bin/framework.js",
+  "bin": {
+    "framework": "bin/framework.js"
+  },
   "scripts": {
-    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +15,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
+    "inquirer": "^9.2.20",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7",
     "node": "^22.0.0",
@@ -20,10 +23,12 @@
     "nodemon": "^3.1.0",
     "path": "^0.12.7",
     "sequelize": "^6.37.3",
-    "umzug": "^2.3.0"
+    "umzug": "^2.3.0",
+    "yargs": "^17.1.1-candidate.0"
   },
   "description": "",
   "devDependencies": {
+    "@types/yargs": "^17.0.32",
     "sequelize-cli": "^6.6.2"
   }
 }
