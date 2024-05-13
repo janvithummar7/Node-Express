@@ -3,6 +3,10 @@
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 const startServer = require("../server");
+const path = require('path')
+const fs = require('fs')
+
+
 
 const promptModuleName = async () => {
   const { default: inquirer } = await import('inquirer');
@@ -20,7 +24,7 @@ const promptModuleName = async () => {
 const argv = yargs(hideBin(process.argv))
   .command("start", "Start the framework server", startServer)
   .command(
-    "create module [modulename]",
+    "create-module [modulename]",
     "Create a new module in the API folder",
     (yargs) => {
       yargs.positional("modulename", {
@@ -39,6 +43,7 @@ const argv = yargs(hideBin(process.argv))
       }
     }
   )
+  
   
   .help()
   .argv;

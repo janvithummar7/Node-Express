@@ -1,5 +1,15 @@
 [
   {
+    "path": "/signup",
+    "method": "get",
+    "action": "auth.signup",
+    "public": true,
+    "globalMiddlewares": [],
+    "middlewares": [],
+    "pathFromRoot": false,
+    "enabled": true
+  },
+  {
     "path": "/login",
     "method": "post",
     "action": "auth.login",
