@@ -1,0 +1,14 @@
+[
+  {
+    "method": "get",
+    "path": "/j",
+    "public": true,
+    "globalMiddlewares": [
+      ""
+    ],
+    "moduleMiddlewares": [
+      ""
+    ],
+    "pathFromRoot": false
+  }
+]

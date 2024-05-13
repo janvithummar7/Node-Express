@@ -48,5 +48,44 @@
     "middlewares": [],
     "pathFromRoot": false,
     "enabled": true
+  },
+  {
+    "method": "get",
+    "path": "/signup",
+    "action": "a.s",
+    "public": false,
+    "globalMiddlewares": [
+      ""
+    ],
+    "moduleMiddlewares": [
+      ""
+    ],
+    "pathFromRoot": false
+  },
+  {
+    "method": "post",
+    "path": "/p",
+    "action": "a.p",
+    "public": false,
+    "globalMiddlewares": [
+      ""
+    ],
+    "moduleMiddlewares": [
+      ""
+    ],
+    "pathFromRoot": false
+  },
+  {
+    "method": "get",
+    "path": "/sig",
+    "action": "j",
+    "public": false,
+    "globalMiddlewares": [
+      "j"
+    ],
+    "moduleMiddlewares": [
+      "j"
+    ],
+    "pathFromRoot": false
   }
 ]

@@ -1,4 +1,4 @@
- // Sample functions function for Module7
+ // Sample controllers function for Module6
     function functionName(req, res) {
         console.log("Function Running");
         res.send("Function Running");
