@@ -3,12 +3,16 @@ const path = require("path");
 
 const createModules = async (argv) => {
   // console.log(argv);
-  const modulename = argv.modulename
-    if (!modulename) {
-      modulename = await promptModuleName();
-      console.log(modulename);
-    }
-
+  let modulename;
+  
+  if (!argv || !argv.modulename) {
+    modulename = await promptModuleName();
+    console.log(modulename);
+  }
+  else{
+    modulename = argv.modulename
+  }
+  
     if (!isValidModuleName(modulename)) {
         console.error(`Error: '${modulename}' is not a valid module name.`);
         return;

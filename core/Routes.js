@@ -6,7 +6,6 @@ const colors = {
     red: '\x1b[31m',
     yellow: '\x1b[33m'
 };
-const methodNames = ['get', 'post', 'put', 'delete'];
 
 
 const Routes = async (app) => {
@@ -35,7 +34,7 @@ const Routes = async (app) => {
                     notValidRoutes.push(route);
                 }
 
-                if (typeof route.method !== 'string' || !methodNames.includes(route.method.toLowerCase()) || route.method.trim() === '') {
+                if (typeof route.method !== 'string' || !app[route.method] || route.method.trim() === '') {
                     err_msg.push(`Invalid or missing method in route at index ${index}: ${route.method}`);
                     notValidRoutes.push(route);
                 }

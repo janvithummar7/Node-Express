@@ -4,8 +4,14 @@
     "method": "get",
     "action": "auth.signup",
     "public": true,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware2", "globalMiddlewares.globalMiddleware6"],
-    "middlewares": ["authMiddleware.authMiddleware1", "authMiddleware.authMiddleware4"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware2",
+      "globalMiddlewares.globalMiddleware6"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware1",
+      "authMiddleware.authMiddleware4"
+    ],
     "pathFromRoot": false,
     "enabled": true
   },
@@ -14,8 +20,14 @@
     "method": "post",
     "action": "auth.login",
     "public": false,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware1", "globalMiddlewares.globalMiddleware3"],
-    "middlewares": ["authMiddleware.authMiddleware2", "authMiddleware.authMiddleware6"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware1",
+      "globalMiddlewares.globalMiddleware3"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware2",
+      "authMiddleware.authMiddleware6"
+    ],
     "pathFromRoot": false,
     "enabled": true
   },
@@ -24,8 +36,14 @@
     "method": "post",
     "action": "auth.view",
     "public": true,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware4", "globalMiddlewares.globalMiddleware5"],
-    "middlewares": ["authMiddleware.authMiddleware3", "authMiddleware.authMiddleware4"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware4",
+      "globalMiddlewares.globalMiddleware5"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware3",
+      "authMiddleware.authMiddleware4"
+    ],
     "pathFromRoot": false,
     "enabled": true
   },
@@ -34,8 +52,14 @@
     "method": "post",
     "action": "auth.edit",
     "public": false,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware2", "globalMiddlewares.globalMiddleware4"],
-    "middlewares": ["authMiddleware.authMiddleware1", "authMiddleware.authMiddleware5"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware2",
+      "globalMiddlewares.globalMiddleware4"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware1",
+      "authMiddleware.authMiddleware5"
+    ],
     "pathFromRoot": false,
     "enabled": false
   },
@@ -44,8 +68,14 @@
     "method": "delete",
     "action": "auth.remove",
     "public": true,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware5", "globalMiddlewares.globalMiddleware6"],
-    "middlewares": ["authMiddleware.authMiddleware1", "authMiddleware.authMiddleware3"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware5",
+      "globalMiddlewares.globalMiddleware6"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware1",
+      "authMiddleware.authMiddleware3"
+    ],
     "pathFromRoot": false,
     "enabled": true
   },
@@ -54,8 +84,14 @@
     "method": "get",
     "action": "auth.create",
     "public": true,
-    "globalMiddlewares": ["globalMiddlewares.globalMiddleware1", "globalMiddlewares.globalMiddleware4"],
-    "middlewares": ["authMiddleware.authMiddleware2", "authMiddleware.authMiddleware4"],
+    "globalMiddlewares": [
+      "globalMiddlewares.globalMiddleware1",
+      "globalMiddlewares.globalMiddleware4"
+    ],
+    "middlewares": [
+      "authMiddleware.authMiddleware2",
+      "authMiddleware.authMiddleware4"
+    ],
     "pathFromRoot": false,
     "enabled": true
   }

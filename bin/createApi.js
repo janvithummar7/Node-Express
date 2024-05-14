@@ -3,28 +3,29 @@ const path = require("path");
 
 const createApi = async (argv) => {
 
-    if (!argv.module) {
+
+    if (!argv || !argv.module) {
       var modules = await promptModulesSelection();
     }
-    if (!argv.method) {
+    if (!argv || !argv.method) {
       var method = await promptInput("Enter method:");
     } 
-    if (!argv.endpointPath) {
+    if (!argv || !argv.endpointPath) {
       var endpointPath = await promptInput("Enter endpoint path (/):");
     } 
-    if (!argv.action) {
+    if (!argv || !argv.action) {
       var action = await promptInput("Enter action:");
     } 
-    if (!argv.isPublic) {
+    if (!argv || !argv.isPublic) {
       var isPublic = await promptConfirm("Is public (y/N):");
     } 
-    if (!argv.moduleMiddlewares) {
+    if (!argv || !argv.moduleMiddlewares) {
       var moduleMiddlewares = await promptInput("Enter module middlewares (comma-separated):");
     } 
-    if (!argv.globalMiddlewares) {
+    if (!argv || !argv.globalMiddlewares) {
       var globalMiddlewares = await promptInput("Enter global middlewares (comma-separated):");
     } 
-    if (!argv.pathFromRoot) {
+    if (!argv || !argv.pathFromRoot) {
       var pathFromRoot = await promptConfirm("Is path from root (y/N):");
     }
     else {
