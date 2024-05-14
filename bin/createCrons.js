@@ -18,7 +18,7 @@ const createCrons = async (argv) => {
       const fileLength = files.length;
       const routeFilePath = path.join(cronsDir, `crons${fileLength + 1}.js`);
 
-      fs.writeFileSync(routeFilePath, getCronsFunctionContent(expression));
+      fs.writeFileSync(routeFilePath, getCronsFunctionContent(expression, fileLength));
       console.log(`Created File 'crons${fileLength + 1}.js' in Crons folder.`);
     });
   } catch (err) {
@@ -39,15 +39,14 @@ const promptExpression = async () => {
   return answer.expression;
 };
 
-const getCronsFunctionContent = (expression) => {
+const getCronsFunctionContent = (expression, fileLength) => {
   return ` 
-    function functionName() {
-      cron.schedule('${expression}', () => {
-        console.log('Crons is running');
-      });
-    }
-
-    module.exports = {functionName}
+  var cron = require('node-cron');
+    cron.schedule('${expression}', () => {
+        console.log("Crons${fileLength+1} is running");
+    });
+    
+  module.exports = {cron}
   `;
 };
 

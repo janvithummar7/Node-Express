@@ -1,9 +1,8 @@
  
-    function functionName() {
-      cron.schedule('* * * * *', () => {
-        console.log('Crons is running');
-      });
-    }
-
-    module.exports = {functionName}
+  var cron = require('node-cron');
+    cron.schedule('dsfghjk', () => {
+        console.log("Crons3 is running");
+    });
+    
+  module.exports = {cron}
   

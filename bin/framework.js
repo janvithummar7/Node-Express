@@ -9,7 +9,6 @@ const createApi = require("./createApi");
 const createCrons = require("./createCrons");
 
 const argv = yargs(hideBin(process.argv)).argv;
-console.log(argv._);
 if (argv._.length === 0) {
   AllCommands();
 } else {

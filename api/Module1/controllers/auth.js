@@ -22,8 +22,6 @@ function signup(req, res) {
     console.log(framework)
     const myService = framework.services.Module1.test.myService1();    
     console.log(myService);
-    const myCrone = framework.crons.crons.cron1();    
-    console.log(myCrone);
     const myFunction = framework.functions.Module1.allFunctions.function1();    
     console.log(myFunction);
     res.send("Signup page");
