@@ -4,6 +4,9 @@ const { Routes } = require("./core/routes");
 const services = require("./core/services");
 const functions = require("./core/functions");
 const { db, sequelize } = require("./core/model");
+const sequelizeModel = require("./core/sequelizeModel");
+const mongoDBModel = require('./core/mongodbModel');
+const mongodbConncetion = require("./db/mongodb/connection/connection");
 const app = express();
 const PORT = process.env.PORT;
 app.use(express.json());
@@ -31,9 +34,13 @@ async function initializeApp() {
       crons: crons,
       functions: functions,
       models: db,
-      connection: sequelize,
+      sequelizeConnection: sequelize,
+      sequelize: sequelizeModel,
+      mongo: mongoDBModel,
+      mongodbConncetion: mongodbConncetion
     };
     global.framework = framework;
+    // console.log(framework,"<---------------framework");
     const { checkPendingMigrations } = require("./core/migrations");
     await checkPendingMigrations();
     await startServer();
