@@ -98,6 +98,8 @@ const Routes = async (app) => {
                     const verifyTokenPath = require('../middlewares/globalMiddlewares')
                     const verifyToken = verifyTokenPath.verifyToken
 
+                    const api = ``
+
                     if (isPublic) {
                         app[routeMethod](routePath, MiddlewareHandler, handler);
                         console.log(`Route set up from ${folderName}: ${routeMethod.toUpperCase()} ${fileName}${routePath}`);

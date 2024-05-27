@@ -1,19 +1,5 @@
 function home(req, res) {
     console.log("Home page");
-     
-
-    // accessing service
-    // framework.services.Module1.test.myservice()
-
-    // const framework = {
-    //     services: {
-    //         Module1: {
-    //             test: {
-    //                 myservice: () => {}
-    //             }
-    //         }
-    //     }
-    // }
     res.send("Welcome to the home page!");
 }
 

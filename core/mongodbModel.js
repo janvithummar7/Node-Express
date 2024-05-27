@@ -16,6 +16,5 @@ modelFiles.forEach((file) => {
   }
 });
 
-console.log(mongoDBModel,"<--------models");
 
 module.exports = mongoDBModel;

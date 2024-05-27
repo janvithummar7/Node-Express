@@ -36,7 +36,7 @@ const createApi = async (argv) => {
       const routeData = {
         method,
         path: endpointPath,
-        action,
+        action: `${modules}.${action}`,
         public: isPublic ,
         globalMiddlewares: globalMiddlewares.split(','),
         moduleMiddlewares: moduleMiddlewares.split(','),

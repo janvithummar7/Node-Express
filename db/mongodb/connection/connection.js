@@ -33,7 +33,6 @@ const createUser = async () => {
       },
     ];
     const savedUsers = await Employee.insertMany(newUsers);
-    console.log("User saved:", savedUsers);
   } catch (err) {
     console.log("Error creating user:", err);
   }
