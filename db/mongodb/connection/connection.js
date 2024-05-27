@@ -14,8 +14,7 @@ const createUser = async () => {
     const newUsers = [
       {
         name: "Janvi",
-        email: "janvi@gmail.com",
-        age: 20,
+        email: "janviiiiiiiii@gmail.com",
       },
       {
         name: "Hinali",
